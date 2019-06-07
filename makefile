@@ -1,5 +1,6 @@
 
 USER := $(shell id -u):$(shell id -g)
+ARGS ?= --python 3.7
 
 .PHONY: help
 help:
@@ -12,9 +13,9 @@ build: ## Build the Docker Images
 	docker-compose up -d
 	docker-compose down
 
-.PHONY: initpipenv
-initpipenv: ## Prepare pipenv environment 
+.PHONY: pipenv
+pipenv: ## Prepare pipenv environment 
 	docker-compose build
 	docker-compose up -d
-	docker-compose run -u "$(USER)" app make _initpipenv
+	docker-compose run -u "$(USER)" app make ARGS="$(ARGS)" _pipenv
 	docker-compose down
