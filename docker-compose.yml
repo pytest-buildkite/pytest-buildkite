@@ -2,6 +2,8 @@
 version: '3.0'
 services:
   # Service image
-  pyruncompare:
+  app:
     image: pyruncompare:latest
     build: app
+    volumes:
+      - .:/workspace
