@@ -11,7 +11,12 @@ _build: ## Prepare Docker Image
 	python -m pip install pipenv
 
 .PHONY: _pipenv
-_pipenv: ## Prepare Docker Image
-	pwd
+_pipenv: ## Run PIPENV
 	python -m pipenv $(ARGS)
+
+.PHONY: _publish
+_publish: ## Publish to Pypi
+	python setup.py bdist_wheel sdist
+	python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+	python -m twine upload dist/*
 

@@ -19,3 +19,10 @@ pipenv: ## Prepare pipenv environment
 	docker-compose up -d
 	docker-compose run -u "$(USER)" app make ARGS="$(ARGS)" _pipenv
 	docker-compose down
+
+.PHONY: publish
+publish: ## Prepare pipenv environment 
+	docker-compose build
+	docker-compose up -d
+	docker-compose run -u "$(USER)" app make _publish
+	docker-compose down
