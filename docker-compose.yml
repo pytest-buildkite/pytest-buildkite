@@ -1,9 +1,11 @@
 ---
-version: '3.0'
+version: '3.7'
 services:
   # Service image
   app:
     image: pyruncompare:latest
     build: app
     volumes:
-      - .:/workspace
+      - type: bind
+        source: ./app
+        target: /workspace/app
