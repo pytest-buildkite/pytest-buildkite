@@ -1,0 +1,7 @@
+---
+version: '3.0'
+services:
+  # Service image
+  pyruncompare:
+    image: pyruncompare:latest
+    build: app
