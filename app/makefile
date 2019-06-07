@@ -16,7 +16,6 @@ _pipenv: ## Run PIPENV
 
 .PHONY: _publish
 _publish: ## Publish to Pypi
-	python -c 'print(repr(__import__("wheel")))'
 	python setup.py bdist_wheel sdist
 	python -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 	python -m twine upload dist/*
