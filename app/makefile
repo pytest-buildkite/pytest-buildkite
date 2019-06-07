@@ -6,5 +6,9 @@ help:
 
 .PHONY: _build
 _build: ## Prepare Docker Image
-	true
+	python -m pip install pipenv
+
+.PHONY: _initpipenv
+_initpipenv: ## Prepare Docker Image
+	python -m pipenv --python 3.7
 

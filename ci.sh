@@ -2,6 +2,12 @@
 
 set -euxo pipefail
 
+BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+CMD="${1:-build}"
+USERID="$(id -u)"
+export USERID
+
 if ! which make ; then
     echo 'GNU Make is missing!' >&2
     exit 1
@@ -14,4 +20,6 @@ if ! which docker-compose ; then
     echo 'Docker-Compose is missing!' >&2
     exit 1
 fi
-make build
+cd "${BASEDIR}"
+make "${CMD}" "${@:2}"
+
