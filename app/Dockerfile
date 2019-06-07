@@ -1,4 +1,5 @@
 FROM python:3.7.3-stretch
-COPY . /workspace/app
+COPY install.sh /build/install.sh
+RUN /build/install.sh
 WORKDIR /workspace/app
-RUN make _build
+ENV HOME /workspace/app

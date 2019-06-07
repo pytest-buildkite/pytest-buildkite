@@ -10,5 +10,6 @@ _build: ## Prepare Docker Image
 
 .PHONY: _initpipenv
 _initpipenv: ## Prepare Docker Image
+	pwd
 	python -m pipenv --python 3.7
 
