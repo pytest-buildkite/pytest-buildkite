@@ -10,6 +10,7 @@ twine = "*"
 wheel = "*"
 pylint = "*"
 flake8 = "*"
+bandit = "*"
 
 [requires]
 python_version = "3.7"
