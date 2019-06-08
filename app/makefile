@@ -13,7 +13,7 @@ _test: ## Run Testing
 	python -m flake8 $(MODULES)
 	python -m pylint $(MODULES)
 	python -m bandit -r $(MAIN_MODULE)
-	python -m pytest --cov-fail-under=85 --cov=$(MAIN_MODULE)
+	python -m pytest --cov-config=.coveragerc --cov-fail-under=100 --cov=$(MAIN_MODULE)
 	echo 'Testing Complete'
 
 .PHONY: _pipenv
