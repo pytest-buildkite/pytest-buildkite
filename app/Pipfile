@@ -11,6 +11,8 @@ wheel = "*"
 pylint = "*"
 flake8 = "*"
 bandit = "*"
+pytest = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.7"
