@@ -4,7 +4,7 @@ set -euxo pipefail
 
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-CMD="${1:-build}"
+CMD="${1:-test}"
 USERID="$(id -u)"
 export USERID
 
