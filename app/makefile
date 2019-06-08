@@ -10,6 +10,7 @@ help:
 _test: ## Run Testing 
 	python -m flake8 pyruncompare
 	python -m pylint pyruncompare
+	python -m bandit -r pyruncompare
 	echo 'Testing Complete'
 
 .PHONY: _pipenv
