@@ -10,7 +10,7 @@ def main():
     """
     Test
     """
-    pass
+    print('Done.')
 
 
 if __name__ == '__main__':
