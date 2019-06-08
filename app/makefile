@@ -1,4 +1,6 @@
 
+MAIN_MODULE := pyruncompare
+MODULES := $(MAIN_MODULE) test
 ARGS ?= "--python 3.7"
 
 .PHONY: help
@@ -8,9 +10,10 @@ help:
 
 .PHONY: _test
 _test: ## Run Testing 
-	python -m flake8 pyruncompare
-	python -m pylint pyruncompare
-	python -m bandit -r pyruncompare
+	python -m flake8 $(MODULES)
+	python -m pylint $(MODULES)
+	python -m bandit -r $(MAIN_MODULE)
+	python -m pytest --cov=$(MAIN_MODULE)
 	echo 'Testing Complete'
 
 .PHONY: _pipenv
