@@ -1,15 +1,15 @@
 """
-Test modules for pyruncompare __main__
+Test modules for pymodulenamegoeshere __main__
 """
 
 
 def test_main():
     """
-    GIVEN the pyruncompare.__main__ module entry point WHEN calling main THEN
+    GIVEN the pymodulenamegoeshere.__main__ module entry point WHEN calling main THEN
     the call executes successfully with a result of `None`
     """
     # Setup
-    from pyruncompare.__main__ import main
+    from pymodulenamegoeshere.__main__ import main
     # Exercise
     result = main()  # pylint: disable=assignment-from-no-return
     # Verify

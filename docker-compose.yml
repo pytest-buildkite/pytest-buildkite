@@ -3,7 +3,7 @@ version: '3.7'
 services:
   # Service image
   app:
-    image: pyruncompare:latest
+    image: pymodulenamegoeshere:latest
     build: app
     volumes:
       - type: bind
