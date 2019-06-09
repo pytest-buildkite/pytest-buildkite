@@ -7,5 +7,5 @@ services:
     build: app
     volumes:
       - type: bind
-        source: ./app
-        target: /workspace/app
+        source: .
+        target: /workspace
