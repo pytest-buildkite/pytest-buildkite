@@ -1,4 +1,4 @@
-FROM python:3.7.3-stretch
+FROM ubuntu:18.04
 COPY install.sh /build/install.sh
 COPY Pipfile /build/Pipfile
 COPY Pipfile.lock /build/Pipfile.lock
