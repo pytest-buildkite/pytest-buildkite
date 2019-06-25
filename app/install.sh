@@ -7,7 +7,6 @@ BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "${BASEDIR}"
 
 PYTHONVERS=( 
-    python2.6 \
     python2.7 \
     python3.1 \
     python3.2 \
