@@ -8,5 +8,5 @@ cd "${BASEDIR}"
 
 for PYVER in ${PYTHONVERS} ; do
   cd "${BASEDIR}/pipenv/${PYVER}"
-  "python${PYVER}" -m pipenv install pyspelling #--deploy --system 
+  "python${PYVER}" -m pipenv install --deploy --system 
 done

@@ -6,6 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+flake8 = "*"
+pylint = "*"
+bandit = "*"
+pytest = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.6"
