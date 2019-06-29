@@ -10,7 +10,6 @@ MODULES=( "${MAIN_MODULE}" "test" )
 
 cd "${BASEDIR}/app"
 for PYVER in ${PYTHONVERS} ; do
-  rm -rf "${BASEDIR}/.local"
   # "python${PYVER}" -m flake8 "${MODULES[@]}"
   # "python${PYVER}" -m pylint "${MODULES[@]}"
   # "python${PYVER}" -m bandit -r "${MAIN_MODULE}"

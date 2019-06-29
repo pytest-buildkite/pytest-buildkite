@@ -7,8 +7,6 @@ verify_ssl = true
 
 [packages]
 pytest = "*"
-pytest-cov = "*"
-pytest-azurepipelines42 = "*"
 
 [requires]
 python_version = "2.7"
