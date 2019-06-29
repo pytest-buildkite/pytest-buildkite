@@ -8,5 +8,6 @@ cd "${BASEDIR}"
 
 for PYVER in ${PYTHONVERS} ; do
   cd "${BASEDIR}/pipenv/${PYVER}"
+  rm -rf "${BASEDIR}/.local"
   "python${PYVER}" -m pipenv install --deploy --system 
 done

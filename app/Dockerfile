@@ -1,4 +1,5 @@
 FROM 3amigos/pipenv-all:latest
+ENV PYTHONVERS "2.7"
 COPY install.sh /build/install.sh
 COPY pipenv /build/pipenv
 RUN /build/install.sh
