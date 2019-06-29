@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cf0f924991a4d99f4e2f0fd8793f78bdd18fd53115372ea773a8b82f57b327f1"
+            "sha256": "3add35e562bc4ac275a12a6f8d260390df309c790038a07df2bb4de34a117b50"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -42,7 +42,7 @@
                 "sha256:9d98697f088eb1b0fa451391f91afb5e3ebde16bbdb272819fd091151fda4f1a",
                 "sha256:f0b0e4eba956de51238e17573b7087e852dfe9854afd2e9c873f73fc0ca0a6dd"
             ],
-            "markers": "python_version == '2.7'",
+            "markers": "python_version < '3.2'",
             "version": "==1.5"
         },
         "bandit": {
@@ -79,7 +79,7 @@
                 "sha256:8be81d89d6e7b4c0d4e44bcc525845f6da25821de80cb5e06e7e0238a2899e32",
                 "sha256:da60d0014fd8c55eb48c1c5354352e363e2d30bbf7057e5e171a468390184c75"
             ],
-            "markers": "python_version == '2.7'",
+            "markers": "python_version < '3.2'",
             "version": "==3.7.4"
         },
         "contextlib2": {
@@ -343,6 +343,15 @@
             ],
             "index": "pypi",
             "version": "==4.6.4"
+        },
+        "pytest-azurepipelines42": {
+            "hashes": [
+                "sha256:4298bdee5276342ba15e8e1c386ee9f8f87c106a8106328f6c8be171e315d5b3",
+                "sha256:8dccc9064b581adb02ee4c911746dd5fc6cbfa79e5de327506ac831f036f9761",
+                "sha256:f66bab6db607e9971a1e36f10ab2b4cd4dc9a0b7cf8cacad9c9ebfd266c8f367"
+            ],
+            "index": "pypi",
+            "version": "==0.6.2"
         },
         "pytest-cov": {
             "hashes": [
