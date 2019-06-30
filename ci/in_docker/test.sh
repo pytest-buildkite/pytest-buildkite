@@ -10,10 +10,10 @@ MODULES=( "${MAIN_MODULE}" "test" )
 
 cd "${BASEDIR}/app"
 for PYVER in ${PYTHONVERS} ; do
-  true
   # "python${PYVER}" -m flake8 "${MODULES[@]}"
   # "python${PYVER}" -m pylint "${MODULES[@]}"
   # "python${PYVER}" -m bandit -r "${MAIN_MODULE}"
   # "python${PYVER}" -m pytest --cov-config=.coveragerc --cov-fail-under=100 "--cov=${MAIN_MODULE}"
+  "python${PYVER}" -m pytest
 done
 echo 'Testing Complete'

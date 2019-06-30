@@ -11,5 +11,7 @@ MODULES=( "${MAIN_MODULE}" "test" )
 cd "${BASEDIR}"
 for PYVER in ${PYTHONVERS} ; do
   cd "${BASEDIR}/app/pipenv/${PYVER}"
+  rm -rf "${BASEDIR}/.local"
   "python${PYVER}" -m pipenv "$@"
+  rm -rf "${BASEDIR}/.local"
 done
