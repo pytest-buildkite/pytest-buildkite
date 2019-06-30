@@ -16,5 +16,5 @@ for PYVER in ${PYTHONVERS} ; do
   # "python${PYVER}" -m pytest --cov-config=.coveragerc --cov-fail-under=100 "--cov=${MAIN_MODULE}"
   "python${PYVER}" -m pytest
 done
-pip freeze
+python2.7 -m pip freeze --all
 echo 'Testing Complete'
