@@ -8,8 +8,7 @@ BASEDIR="$( dirname "$( dirname "${THISDIR}" )" )"
 cd "${BASEDIR}/app"
 rm -rf dist build
 for PYVER in ${PYTHONVERS} ; do
-  "python${PYVER}" setup.py bdist_wheel
+  "python${PYVER}" setup.py sdist bdist_wheel
 done
-python3.7 setup.py sdist
 python3.7 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 python3.7 -m twine upload dist/*
