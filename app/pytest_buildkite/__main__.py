@@ -1,5 +1,5 @@
 """
-Module load handler for execution via python -m pymodulenamegoeshere.
+Module load handler for execution via python -m pytest_buildkite.
 """
 from __future__ import (
     absolute_import, print_function, division, unicode_literals,
