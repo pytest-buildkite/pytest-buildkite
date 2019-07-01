@@ -3,7 +3,7 @@ version: '3.7'
 services:
   # Service image
   app:
-    image: pymodulenamegoeshere:latest
+    image: pytest_buildkite:latest
     build: app
     volumes:
       - type: bind
