@@ -1,0 +1,11 @@
+---
+version: '3.7'
+services:
+  # Service image
+  app:
+    image: pymodulenamegoeshere:latest
+    build: app
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
