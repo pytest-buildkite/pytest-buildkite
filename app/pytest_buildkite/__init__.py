@@ -52,8 +52,10 @@ def pytest_collection_modifyitems(  # pylint: disable=unused-argument
                 if parent.__doc__ else parent.__name__
             )
             case_doc = node.__doc__.split("\n\n")[0] if node.__doc__ else None
-            item._nodeid = "[{0}] {1}/{2}".format(
-                case_doc, suite_doc, item.name
+            item._nodeid = (  # pylint: disable=protected-access
+                "[{0}] {1}/{2}".format(
+                    case_doc, suite_doc, item.name
+                )
             )
 
 
