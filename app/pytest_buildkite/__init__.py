@@ -1,13 +1,20 @@
 # -*- coding: utf-8 -*-
+"""
+Pytest plugin to add Builekite annotations for Test Results and Coverage
+Reports.
+"""
+
 import os.path
 import io
 import sys
-import pytest
 
 DEFAULT_PATH = "test-output.xml"
 
 
 def pytest_addoption(parser):
+    """
+    Add command line group options to pytest.
+    """
     group = parser.getgroup("pytest_buildkite")
     group.addoption(
         "--test-run-title",
@@ -25,7 +32,13 @@ def pytest_addoption(parser):
     )
 
 
-def pytest_collection_modifyitems(session, config, items):
+def pytest_collection_modifyitems(  # pylint: disable=unused-argument
+            session, config, items
+        ):
+    """
+    This is called after the tests have been collected and allows the plugin
+    to record information against the test case
+    """
     for item in items:
         # Make sure that nodes have required attributes
         if not hasattr(item, "obj") or not hasattr(item.parent, "obj"):
@@ -35,13 +48,22 @@ def pytest_collection_modifyitems(session, config, items):
         node = item.obj  # Test case
         if config.getoption("napoleon"):
             suite_doc = (
-                parent.__doc__.split("\n\n")[0] if parent.__doc__ else parent.__name__
+                parent.__doc__.split("\n\n")[0]
+                if parent.__doc__ else parent.__name__
             )
             case_doc = node.__doc__.split("\n\n")[0] if node.__doc__ else None
-            item._nodeid = "[{0}] {1}/{2}".format(case_doc, suite_doc, item.name)
+            item._nodeid = (  # pylint: disable=protected-access
+                "[{0}] {1}/{2}".format(
+                    case_doc, suite_doc, item.name
+                )
+            )
 
 
 def pytest_configure(config):
+    """
+    Allows the plugin to configure pytest, in this case we make sure the
+    required reports are produced for coverage to be uploaded to Buildkite
+    """
     xmlpath = config.getoption("--junitxml")
     if not xmlpath:
         config.option.xmlpath = DEFAULT_PATH
@@ -49,16 +71,25 @@ def pytest_configure(config):
     # ensure coverage creates xml format
     if config.pluginmanager.has_plugin("pytest_cov"):
         config.option.cov_report["xml"] = os.path.normpath(
-            os.path.abspath(os.path.expanduser(os.path.expandvars("test-cov.xml")))
+            os.path.abspath(
+                os.path.expanduser(os.path.expandvars("test-cov.xml"))
+            )
         )
         if "html" not in config.option.cov_report:
             config.option.cov_report["html"] = None
 
 
 def pytest_sessionfinish(session, exitstatus):
+    """
+    Called at the completion of pytest and the report annotations are
+    performed.
+    """
     xmlpath = session.config.option.xmlpath
 
-    # This mirrors https://github.com/pytest-dev/pytest/blob/38adb23bd245329d26b36fd85a43aa9b3dd0406c/src/_pytest/junitxml.py#L368-L369
+    # This mirrors
+    # https://github.com/pytest-dev/pytest/blob
+    #    /38adb23bd245329d26b36fd85a43aa9b3dd0406c/src
+    #    /_pytest/junitxml.py#L368-L369
     xmlabspath = os.path.normpath(
         os.path.abspath(os.path.expanduser(os.path.expandvars(xmlpath)))
     )
@@ -83,14 +114,17 @@ def pytest_sessionfinish(session, exitstatus):
 
     if exitstatus != 0 and session.testsfailed > 0 and not session.shouldfail:
         print(
-            "##vso[task.logissue type=error;]{0} test(s) failed, {1} test(s) collected.".format(
+            "##vso[task.logissue type=error;]{0} test(s) failed,"
+            " {1} test(s) collected.".format(
                 session.testsfailed, session.testscollected
             )
         )
 
     if session.config.pluginmanager.has_plugin("pytest_cov"):
         covpath = os.path.normpath(
-            os.path.abspath(os.path.expanduser(os.path.expandvars("test-cov.xml")))
+            os.path.abspath(
+                os.path.expanduser(os.path.expandvars("test-cov.xml"))
+            )
         )
         reportdir = os.path.normpath(os.path.abspath("htmlcov"))
         if os.path.exists(covpath):
@@ -98,7 +132,8 @@ def pytest_sessionfinish(session, exitstatus):
                 covpath = apply_docker_mappings(mountinfo, covpath)
                 reportdir = apply_docker_mappings(mountinfo, reportdir)
             print(
-                "##vso[codecoverage.publish codecoveragetool=Cobertura;summaryfile={0};reportdirectory={1};]".format(
+                "##vso[codecoverage.publish codecoveragetool=Cobertura"
+                ";summaryfile={0};reportdirectory={1};]".format(
                     covpath, reportdir
                 )
             )
@@ -130,5 +165,14 @@ def apply_docker_mappings(mountinfo, dockerpath):
     return dockerpath
 
 
-def pytest_warning_captured(warning_message, when, *args):
-    print("##vso[task.logissue type=warning;]{0}".format(str(warning_message.message)))
+def pytest_warning_captured(  # pylint: disable=unused-argument
+            warning_message, when, *args
+        ):
+    """
+    Raise any pytest warnings to Buildkite.
+    """
+    print(
+        "##vso[task.logissue type=warning;]{0}".format(
+            str(warning_message.message)
+        )
+    )
