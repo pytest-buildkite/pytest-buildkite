@@ -3,8 +3,6 @@
 Test cases for pytest_buildkite
 """
 
-import pytest
-
 
 def test_bar_fixture(testdir):
     """Make sure that pytest accepts our fixture."""
@@ -73,11 +71,3 @@ def test_apply_docker_mappings():
     checkpath = apply_docker_mappings(dummy_mountinfo, dockerpath)
     # Verify
     assert hostpath == checkpath
-
-
-@pytest.mark.testfail
-def test_failure(testdir):  # pylint: disable=unused-argument
-    """
-    Purposefully raise a failing test.
-    """
-    raise RuntimeError("Check stack traces in UI")
