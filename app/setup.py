@@ -1,20 +1,43 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Setuptool Distribution for pytest_buildkite
 """
+
+# {{{ Import
+# System  Imports
+import os
+import codecs
+# External Imports
 from setuptools import setup
+# }}}
+
+
+def read(fname):
+    """
+    Read the contents of relative file.
+    """
+    file_path = os.path.join(os.path.dirname(__file__), fname)
+    return codecs.open(file_path, encoding='utf-8').read()
+
 
 setup(
     name='pytest-buildkite',
-    version='0.1.2dev0',
+    version='0.1.3dev0',
     author='Tim Gates',
     author_email='tim.gates@iress.com',
-    packages=['pytest_buildkite',],
+    maintainer='Tim Gates',
+    maintainer_email='tim.gates@iress.com',
     license='MIT',
-    long_description=(
+    url='https://pytest-buildkite.github.io/index.html',
+    description=(
         'Plugin for pytest that automatically publishes coverage and'
         ' pytest report annotations to Buildkite.'
     ),
-    url='https://pytest-buildkite.github.io/index.html',
+    long_description=read('README.rst'),
+    py_modules=['pytest_buildkite'],
+    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
+    install_requires=['pytest>=3.5.0'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Framework :: Pytest',
@@ -33,4 +56,9 @@ setup(
         'Operating System :: OS Independent',
         'License :: OSI Approved :: MIT License',
     ],
+    entry_points={
+        'pytest11': [
+            'azurepipelines = pytest_azurepipelines',
+        ],
+    },
 )
