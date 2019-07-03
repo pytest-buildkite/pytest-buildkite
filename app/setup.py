@@ -6,10 +6,11 @@ Setuptool Distribution for pytest_buildkite
 
 # {{{ Import
 # System  Imports
-import os
 import codecs
+import os
 # External Imports
 from setuptools import setup
+
 # }}}
 
 
