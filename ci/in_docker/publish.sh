@@ -5,6 +5,8 @@ set -euxo pipefail
 THISDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BASEDIR="$( dirname "$( dirname "${THISDIR}" )" )"
 
+${BASEDIR}/ci/in_docker/prepare.sh
+
 cd "${BASEDIR}/app"
 rm -rf dist build
 for PYVER in ${PYTHONVERS} ; do
