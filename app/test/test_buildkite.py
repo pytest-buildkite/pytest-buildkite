@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+Test cases for pytest_buildkite
+"""
 
 import pytest
 
@@ -27,6 +30,9 @@ def test_bar_fixture(testdir):
 
 
 def test_warning_output(testdir):
+    """
+    Raise a warning during a test and check output
+    """
     # create a temporary pytest test module
     testdir.makepyfile("""
         import warnings
@@ -56,10 +62,11 @@ def test_apply_docker_mappings():
     substitution should occur and the host path returned.
     """
     # Setup
-    from pytest_azurepipelines import apply_docker_mappings
-    dummy_mountinfo = """\
-673 654 8:1 /home/tgates/hostspace /workspace rw,relatime - ext4 /dev/sda1 rw,errors=remount-ro,data=ordered
-"""
+    from pytest_buildkite import apply_docker_mappings
+    dummy_mountinfo = (
+        "673 654 8:1 /home/tgates/hostspace /workspace rw,relatime"
+        " - ext4 /dev/sda1 rw,errors=remount-ro,data=ordered\n"
+    )
     dockerpath = '/workspace/test'
     hostpath = '/home/tgates/hostspace/test'
     # Exercise
@@ -69,7 +76,7 @@ def test_apply_docker_mappings():
 
 
 @pytest.mark.testfail
-def test_failure(testdir):
+def test_failure(testdir):  # pylint: disable=unused-argument
     """
     Purposefully raise a failing test.
     """
