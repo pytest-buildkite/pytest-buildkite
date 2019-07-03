@@ -14,5 +14,6 @@ for PYVER in ${PYTHONVERS} ; do
   find "${MODULES[@]}" -iname \*.py -print0 | xargs -0 -n 1 "python${PYVER}" -m pylint
   "python${PYVER}" -m bandit -r "${MAIN_MODULE}"
   "python${PYVER}" -m pytest --cov-config=.coveragerc --cov-fail-under=100 "--cov=${MAIN_MODULE}"
+  "python${PYVER}" -m isort -rc -c "${MODULES[@]}"
 done
 echo 'Testing Complete'
