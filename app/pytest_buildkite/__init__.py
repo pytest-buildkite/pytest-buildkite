@@ -4,8 +4,8 @@ Pytest plugin to add Builekite annotations for Test Results and Coverage
 Reports.
 """
 
-import os.path
 import io
+import os.path
 import sys
 
 DEFAULT_PATH = "test-output.xml"
