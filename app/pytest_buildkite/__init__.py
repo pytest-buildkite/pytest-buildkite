@@ -114,14 +114,29 @@ def pytest_sessionfinish(session, exitstatus):
         )
     )
 
-    if exitstatus != 0 and session.testsfailed > 0 and not session.shouldfail:
-        print(
-            "##vso[task.logissue type=error;]{0} test(s) failed,"
-            " {1} test(s) collected.".format(
-                session.testsfailed, session.testscollected
+    if not session.shouldfail:
+        if exitstatus != 0:
+            if session.testsfailed > 0:
+                buildkite_annotate(
+                    ":x: {0} test(s) failed,"
+                    " {1} test(s) collected.".format(
+                        session.testsfailed, session.testscollected
+                    ),
+                    style='error',
+                )
+            elif session.testscollected == 0:
+                buildkite_annotate(
+                    ":warning: no tests collected.",
+                    style='warning',
+                )
+        else:
+            buildkite_annotate(
+                ':white_check_mark: All Tests Passed. {0} test(s)'
+                ' collected.'.format(
+                    session.testscollected
+                ),
+                style='success',
             )
-        )
-    buildkite_annotate()
 
     if session.config.pluginmanager.has_plugin("pytest_cov"):
         covpath = os.path.normpath(
@@ -181,12 +196,14 @@ def pytest_warning_captured(  # pylint: disable=unused-argument
     )
 
 
-def buildkite_annotate():
+def buildkite_annotate(content, style='success', context=None):
     """
     Call out to the buildkite-agent to pass a build annotation.
     """
+    if context is None:
+        context = 'ctx-%s' % (style,)
     agent = local['buildkite-agent']
     _ = agent[
-        'annotate', 'Example `success` style', '--style', 'success',
-        '--context', 'ctx-success',
+        'annotate', content, '--style', 'success',
+        '--context', context,
     ] & FG
