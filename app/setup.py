@@ -25,7 +25,7 @@ def read(fname):
 
 setup(
     name='pytest-buildkite',
-    version='0.1.6dev0',
+    version='0.1.7dev0',
     author='Tim Gates',
     author_email='tim.gates@iress.com',
     maintainer='Tim Gates',
