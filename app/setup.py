@@ -6,10 +6,12 @@ Setuptool Distribution for pytest_buildkite
 
 # {{{ Import
 # System  Imports
-import os
 import codecs
+import os
+
 # External Imports
 from setuptools import setup
+
 # }}}
 
 
@@ -35,7 +37,7 @@ setup(
         ' pytest report annotations to Buildkite.'
     ),
     long_description=read('README.rst'),
-    py_modules=['pytest_buildkite'],
+    packages=['pytest_buildkite'],
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     install_requires=['pytest>=3.5.0', 'plumbum'],
     classifiers=[
