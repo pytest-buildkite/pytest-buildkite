@@ -21,7 +21,7 @@ def pytest_addoption(parser):
     group.addoption(
         "--test-run-title",
         action="store",
-        dest="builtkite_run_title",
+        dest="buildkite_run_title",
         default="Pytest results",
         help="Set the BuildKite test run title.",
     )
