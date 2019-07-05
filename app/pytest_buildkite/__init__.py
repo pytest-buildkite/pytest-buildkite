@@ -8,6 +8,8 @@ import os.path
 import io
 import sys
 
+from plumbum import FG, local
+
 DEFAULT_PATH = "test-output.xml"
 
 
@@ -119,6 +121,7 @@ def pytest_sessionfinish(session, exitstatus):
                 session.testsfailed, session.testscollected
             )
         )
+    buildkite_annotate()
 
     if session.config.pluginmanager.has_plugin("pytest_cov"):
         covpath = os.path.normpath(
@@ -176,3 +179,14 @@ def pytest_warning_captured(  # pylint: disable=unused-argument
             str(warning_message.message)
         )
     )
+
+
+def buildkite_annotate():
+    """
+    Call out to the buildkite-agent to pass a build annotation.
+    """
+    agent = local['buildkite-agent']
+    _ = agent[
+        'annotate', 'Example `success` style', '--style', 'success',
+        '--context', 'ctx-success',
+    ] & FG
