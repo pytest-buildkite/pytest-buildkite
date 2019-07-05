@@ -7,3 +7,4 @@ pytest
 pytest-azurepipelines42
 pytest-cov
 pytest-xdist
+plumbum
