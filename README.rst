@@ -22,7 +22,7 @@ Note: This library was repurposed from tonybaloney's pytest-azurepipelines,
 the repurposing process is not yet complete.
 
 Plugin for `pytest`_ that automatically publishes coverage and pytest report
-annotations to BuildKite.
+`annotations`_ to BuildKite.
 
 Just run pytest with this plugin and see your test results in the BuildKite UI!
 
@@ -81,3 +81,4 @@ If you encounter any problems, please `file an issue`_ along with a detailed des
 .. _`pytest`: https://github.com/pytest-dev/pytest
 .. _`pip`: https://pypi.org/project/pip/
 .. _`PyPI`: https://pypi.org/project
+.. _`annotations`: https://buildkite.com/docs/agent/v3/cli-annotate
