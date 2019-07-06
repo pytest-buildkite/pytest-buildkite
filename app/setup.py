@@ -35,7 +35,7 @@ setup(
     description=(
         'descriptiongoeshere'
     ),
-    long_description=read('README.rst'),
+    long_description=read('README.md'),
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     install_requires=[],
     url='homepageurlgoeshere',
