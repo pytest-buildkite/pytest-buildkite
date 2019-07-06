@@ -13,4 +13,4 @@ def test_main():
     # Exercise
     result = main()  # pylint: disable=assignment-from-no-return
     # Verify
-    assert result is None
+    assert result is None  # nosec
