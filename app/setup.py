@@ -39,7 +39,7 @@ setup(
     long_description=read('README.rst'),
     packages=['pytest_buildkite'],
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
-    install_requires=['pytest>=3.5.0', 'plumbum'],
+    install_requires=['pytest>=3.5.0', 'plumbum', 'pipefish'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Framework :: Pytest',
