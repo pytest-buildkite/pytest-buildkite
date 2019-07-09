@@ -111,3 +111,4 @@ venv.bak/
 
 # Pytest
 cov.xml
+/test*.xml
