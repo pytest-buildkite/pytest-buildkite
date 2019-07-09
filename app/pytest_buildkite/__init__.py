@@ -11,6 +11,7 @@ from plumbum import FG, local
 import pipefish
 
 DEFAULT_PATH = "test-output.xml"
+DEFAULT_COV_PATH = "test-cov.xml"
 
 
 def pytest_configure(config):
@@ -26,7 +27,9 @@ def pytest_configure(config):
     if config.pluginmanager.has_plugin("pytest_cov"):
         config.option.cov_report["xml"] = os.path.normpath(
             os.path.abspath(
-                os.path.expanduser(os.path.expandvars("test-cov.xml"))
+                os.path.expanduser(os.path.expandvars(
+                    DEFAULT_COV_PATH
+                ))
             )
         )
 
@@ -55,18 +58,34 @@ def pytest_sessionfinish(session, exitstatus):
                 style = 'warning'
         buildkite_annotate(markdown_msg, style=style)
 
-    if session.config.pluginmanager.has_plugin("pytest_cov"):
+
+def pytest_terminal_summary(terminalreporter):
+    """
+    Coverage is finalized in the terminal summary phase.
+    """
+    if terminalreporter.config.pluginmanager.has_plugin("pytest_cov"):
+        cov_fail_under = terminalreporter.config.option.cov_fail_under
         covpath = os.path.normpath(
-            os.path.abspath(
-                os.path.expanduser(os.path.expandvars("test-cov.xml"))
-            )
+            os.path.abspath(os.path.expanduser(os.path.expandvars(
+                DEFAULT_COV_PATH
+            )))
         )
         if os.path.exists(covpath):
+            cov_style = 'success'
+            if cov_fail_under is not None:
+                cov_percent = pipefish.get_coverage_from_cobertura_xml(covpath)
+                if cov_percent < cov_fail_under:
+                    cov_style = 'error'
+            markdown_msg = pipefish.process_cobertura_xml(
+                covpath, cov_fail_under
+            )
+            buildkite_annotate(markdown_msg, style=cov_style)
+        else:
             buildkite_annotate(
-                '{0} need to process coverage.'.format(
-                    covpath
+                'Coverage XML not produced {0}'.format(
+                    covpath,
                 ),
-                style='warning'
+                style='warning',
             )
 
 
