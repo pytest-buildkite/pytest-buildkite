@@ -90,8 +90,7 @@ def pytest_terminal_summary(terminalreporter):
 
 
 def pytest_warning_captured(  # pylint: disable=unused-argument
-            warning_message, when, *args
-        ):
+        warning_message, when, *args):
     """
     Raise any pytest warnings to Buildkite.
     """
