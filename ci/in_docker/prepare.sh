@@ -9,4 +9,4 @@ cp "${BASEDIR}/README.rst" "${BASEDIR}/app/README.rst"
 cp "${BASEDIR}/LICENSE" "${BASEDIR}/app/LICENSE"
 
 MAIN_MODULE="pytest_buildkite"
-MODULES=( "${MAIN_MODULE}" "test" )
+MODULES=( "${MAIN_MODULE}" "tests" )
