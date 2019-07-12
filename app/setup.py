@@ -37,14 +37,12 @@ setup(
         ' pytest report annotations to Buildkite.'
     ),
     long_description=read('README.rst'),
+    long_description_content_type='text/x-rst',
     packages=['pytest_buildkite'],
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     install_requires=['pytest>=3.5.0', 'plumbum', 'pipefish'],
     classifiers=[
         'Development Status :: 4 - Beta',
-        'Framework :: Pytest',
-        'Intended Audience :: Developers',
-        'Topic :: Software Development :: Testing',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
