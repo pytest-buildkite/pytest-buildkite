@@ -4,11 +4,12 @@ Pytest plugin to add Builekite annotations for Test Results and Coverage
 Reports.
 """
 
+# System Imports
 import os.path
 
-from plumbum import FG, local
-
+# External Imports
 import pipefish
+from plumbum import FG, local
 
 DEFAULT_PATH = "test-output.xml"
 DEFAULT_COV_PATH = "test-cov.xml"
