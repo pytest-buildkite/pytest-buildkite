@@ -76,9 +76,16 @@ Issues
 
 If you encounter any problems, please `file an issue`_ along with a detailed description.
 
+Additional Documentation
+------------------------
+* `Code of Conduct`_
+* `Contribution Guidelines`_
+
 .. _`MIT`: http://opensource.org/licenses/MIT
 .. _`file an issue`: https://github.com/pytest-buildkite/pytest-buildkite/issues
 .. _`pytest`: https://github.com/pytest-dev/pytest
 .. _`pip`: https://pypi.org/project/pip/
 .. _`PyPI`: https://pypi.org/project
 .. _`annotations`: https://buildkite.com/docs/agent/v3/cli-annotate
+.. _`Code of Conduct`: CODE_OF_CONDUCT.md
+.. _`Contribution Guidelines`: CONTRIBUTING.md

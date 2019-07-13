@@ -1,10 +1,12 @@
-twine
-wheel
 bandit
 flake8
+isort
+pipefish
+plumbum
 pylint
 pytest
 pytest-azurepipelines42
 pytest-cov
 pytest-xdist
-plumbum
+twine
+wheel

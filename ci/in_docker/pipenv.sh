@@ -5,8 +5,7 @@ set -euxo pipefail
 THISDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BASEDIR="$( dirname "$( dirname "${THISDIR}" )" )"
 
-MAIN_MODULE="pytest_buildkite"
-MODULES=( "${MAIN_MODULE}" "test" )
+source ${BASEDIR}/ci/in_docker/prepare.sh
 
 cd "${BASEDIR}"
 for PYVER in ${PYTHONVERS} ; do
