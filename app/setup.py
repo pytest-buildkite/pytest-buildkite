@@ -18,16 +18,17 @@ from setuptools import setup
 
 def load_readme(fname):
     """
-    Read the contents of relative README file.
+    Read the contents of relative `README` file.
     """
     file_path = os.path.join(os.path.dirname(__file__), fname)
-    return re.sub(
-        '[(]([^)]*[.]md)[)]',
-        '(https://github.com/'
-        'yourgithuborggoeshere/yourgithubrepogoeshere'
-        '/blob/master/\\g<1>)',
-        codecs.open(file_path, encoding='utf-8').read(),
-    )
+    with codecs.open(file_path, encoding='utf-8') as fobj:
+        return re.sub(
+            '[(]([^)]*[.]md)[)]',
+            '(https://github.com/'
+            'yourgithuborggoeshere/yourgithubrepogoeshere'
+            '/blob/master/\\g<1>)',
+            fobj.read(),
+        )
 
 
 setup(
