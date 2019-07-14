@@ -1,12 +1,2 @@
-bandit
-flake8
-isort
 pipefish
 plumbum
-pylint
-pytest
-pytest-azurepipelines42
-pytest-cov
-pytest-xdist
-twine
-wheel
