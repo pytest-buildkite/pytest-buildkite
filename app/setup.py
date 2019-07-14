@@ -8,6 +8,7 @@
 # System  Imports
 import codecs
 import os
+import re
 
 # External Imports
 from setuptools import setup
@@ -20,9 +21,13 @@ def load_readme(fname):
     Read the contents of relative README file.
     """
     file_path = os.path.join(os.path.dirname(__file__), fname)
-    return codecs.open(file_path, encoding='utf-8').read().split(
-        'Additional Documentation:', 1
-    )[0]
+    return re.sub(
+        '[(]([^)]*[.]md)[)]',
+        '(https://github.com/'
+        'yourgithuborggoeshere/yourgithubrepogoeshere'
+        '/blob/master/\\g<1>)',
+        codecs.open(file_path, encoding='utf-8').read(),
+    )
 
 
 setup(
