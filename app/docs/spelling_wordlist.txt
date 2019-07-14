@@ -1,3 +1,5 @@
+buildkite
 nosec
 pylint
-pymodulenamegoeshere
+pytest
+testsuite

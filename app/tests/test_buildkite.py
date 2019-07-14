@@ -13,12 +13,12 @@ def test_bar_fixture(testdir):
             assert 1 == 1
     """)
 
-    # run pytest with the following cmd args
+    # run pytest with the following command arguments
     result = testdir.runpytest(
         '-v'
     )
 
-    # fnmatch_lines does an assertion internally
+    # `fnmatch_lines` does an assertion internally
     result.stdout.fnmatch_lines([
         '*test_sth PASSED*',
     ])
@@ -39,12 +39,12 @@ def test_warning_output(testdir):
             warnings.warn("Checking the warning feature inside a test")
     """)
 
-    # run pytest with the following cmd args
+    # run pytest with the following command arguments
     result = testdir.runpytest(
         '-v'
     )
 
-    # fnmatch_lines does an assertion internally
+    # `fnmatch_lines` does an assertion internally
     result.stdout.fnmatch_lines([
         '*test_warnings PASSED*',
     ])
