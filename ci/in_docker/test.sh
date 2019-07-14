@@ -8,6 +8,10 @@ BASEDIR="$( dirname "$( dirname "${THISDIR}" )" )"
 source ${BASEDIR}/ci/in_docker/prepare.sh
 
 cd "${BASEDIR}/app"
+# Version independant checks
+PYVER=3.7
+"python${PYVER}" -m pyspelling
+# Version dependant checks
 for PYVER in ${PYTHONVERS} ; do
   "python${PYVER}" -m flake8 "${MODULES[@]}"
   "python${PYVER}" -m isort -rc -c --diff "${MODULES[@]}"
