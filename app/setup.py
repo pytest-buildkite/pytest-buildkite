@@ -15,6 +15,8 @@ from setuptools import setup
 
 # }}}
 
+PACKAGE_NAME = 'pymodulenamegoeshere'
+
 
 def load_readme(fname):
     """
@@ -22,23 +24,49 @@ def load_readme(fname):
     """
     file_path = os.path.join(os.path.dirname(__file__), fname)
     with codecs.open(file_path, encoding='utf-8') as fobj:
-        return re.sub(
-            '[(]([^)]*[.]md)[)]',
+        sub = (
             '(https://github.com/'
             'yourgithuborggoeshere/yourgithubrepogoeshere'
-            '/blob/master/\\g<1>)',
+            '/blob/master/\\g<1>)'
+        )
+        markdown_fixed = re.sub(
+            '[(]([^)]*[.](?:md|rst))[)]',
+            sub,
             fobj.read(),
         )
+        rst_fixed = re.sub(
+            '[(]([^)]*[.](?:md|rst))[)]',
+            '^[.][.] [_][`][^`]*[`][:] ([^)]*[.](?:md|rst))',
+            sub,
+            markdown_fixed
+        )
+        return rst_fixed
+
+
+def read_version():
+    """
+    Read the contents of relative file.
+    """
+    file_path = os.path.join(
+        os.path.dirname(__file__), PACKAGE_NAME, 'version.py'
+    )
+    regex = re.compile('__version__ = [\'\"]([^\'\"]*)[\'\"]')
+    with codecs.open(file_path, encoding='utf-8') as fobj:
+        for line in fobj:
+            mobj = regex.match(line)
+            if mobj:
+                return mobj.group(1)
+    raise Exception('Failed to read version')
 
 
 setup(
-    name='pymodulenamegoeshere',
-    version='0.1.1dev',
+    name=PACKAGE_NAME,
+    version=read_version(),
     author='yournamegoeshere',
     author_email='youremailgoeshere',
     maintainer='yournamegoeshere',
     maintainer_email='youremailgoeshere',
-    packages=['pymodulenamegoeshere'],
+    packages=[PACKAGE_NAME],
     license='GPLv3+',
     description=(
         'descriptiongoeshere'

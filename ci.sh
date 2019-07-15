@@ -18,5 +18,5 @@ if [[ "$CMD" =~ [^a-zA-Z0-9] ]]; then
     exit 1
 fi
 cd "${BASEDIR}"
-source "${BASEDIR}/ci/${CMD}.sh" "${@:2}"
+"${BASEDIR}/ci/${CMD}.sh" "${@:2}"
 
