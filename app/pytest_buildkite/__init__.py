@@ -52,11 +52,10 @@ def pytest_sessionfinish(session, exitstatus):
     if os.path.isfile(xmlabspath) and not session.shouldfail:
         markdown_msg = pipefish.process_junit_xml(xmlabspath)
         style = 'success'
-        if exitstatus != 0:
-            if session.testsfailed > 0:
-                style = 'error'
-            else:
-                style = 'warning'
+        if session.testsfailed > 0:
+            style = 'error'
+        elif exitstatus != 0:
+            style = 'warning'
         buildkite_annotate(markdown_msg, style=style)
 
 
