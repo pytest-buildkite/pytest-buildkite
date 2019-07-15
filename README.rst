@@ -1,7 +1,3 @@
-.. image:: https://github.com/pytest-buildkite/pytest-buildkite/raw/master/icon-above-font.png
-    :width: 450px
-    :align: center
-
 =====================
 pytest-buildkite
 =====================
@@ -22,7 +18,11 @@ pytest-buildkite
      :target: https://pypi.python.org/pypi/pytest-buildkite/
      :alt: PyPI download month
 
-Note: This library was repurposed from tonybaloney's pytest-azurepipelines.
+.. image:: https://github.com/pytest-buildkite/pytest-buildkite/raw/master/icon-above-font.png
+    :width: 450px
+    :align: center
+
+Note: This library was originally repurposed from `tonybaloney's pytest-azurepipelines`_.
 
 Plugin for `pytest`_ that automatically publishes coverage and pytest report
 `annotations`_ to BuildKite.
@@ -115,6 +115,7 @@ Additional Documentation
 * `Code of Conduct`_
 * `Contribution Guidelines`_
 
+.. _`tonybaloney's pytest-azurepipelines`: https://github.com/tonybaloney/pytest-azurepipelines
 .. _`MIT`: http://opensource.org/licenses/MIT
 .. _`file an issue`: https://github.com/pytest-buildkite/pytest-buildkite/issues
 .. _`pytest`: https://github.com/pytest-dev/pytest
