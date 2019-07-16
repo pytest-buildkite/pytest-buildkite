@@ -8,8 +8,19 @@ Reports.
 import os.path
 
 # External Imports
-import pipefish
 from plumbum import FG, local
+
+import pipefish
+
+from .version import __version__
+
+__all__ = [
+    '__version__',
+    'pytest_configure',
+    'pytest_sessionfinish',
+    'pytest_terminal_summary',
+    'pytest_warning_captured',
+]
 
 DEFAULT_PATH = "test-output.xml"
 DEFAULT_COV_PATH = "test-cov.xml"
@@ -56,7 +67,7 @@ def pytest_sessionfinish(session, exitstatus):
             style = 'error'
         elif exitstatus != 0:
             style = 'warning'
-        buildkite_annotate(markdown_msg, style=style)
+        _buildkite_annotate(markdown_msg, style=style)
 
 
 def pytest_terminal_summary(terminalreporter):
@@ -79,9 +90,9 @@ def pytest_terminal_summary(terminalreporter):
             markdown_msg = pipefish.process_cobertura_xml(
                 covpath, cov_fail_under
             )
-            buildkite_annotate(markdown_msg, style=cov_style)
+            _buildkite_annotate(markdown_msg, style=cov_style)
         else:
-            buildkite_annotate(
+            _buildkite_annotate(
                 'Coverage XML not produced {0}'.format(
                     covpath,
                 ),
@@ -94,12 +105,12 @@ def pytest_warning_captured(  # pylint: disable=unused-argument
     """
     Raise any pytest warnings to Buildkite.
     """
-    buildkite_annotate(
+    _buildkite_annotate(
         str(warning_message.message), style='warning',
     )
 
 
-def buildkite_annotate(content, style='success', context=None):
+def _buildkite_annotate(content, style='success', context=None):
     """
     Call out to the buildkite-agent to pass a build annotation.
     """
