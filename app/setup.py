@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-`setuptools` Distribution for pytest-buildkite
+`setuptools` Distribution for pytest_buildkite
 """
 
-# {{{ Import
 # System  Imports
 import codecs
 import os
@@ -13,9 +12,7 @@ import re
 # External Imports
 from setuptools import setup
 
-# }}}
-
-PACKAGE_NAME = 'pymodulenamegoeshere'
+PACKAGE_NAME = 'pytest_buildkite'
 
 
 def load_readme(fname):
@@ -26,7 +23,7 @@ def load_readme(fname):
     with codecs.open(file_path, encoding='utf-8') as fobj:
         sub = (
             '(https://github.com/'
-            'yourgithuborggoeshere/yourgithubrepogoeshere'
+            'pytest-buildkite/pytest-buildkite'
             '/blob/master/\\g<1>)'
         )
         markdown_fixed = re.sub(
@@ -65,17 +62,17 @@ setup(
     author_email='tim.gates@iress.com',
     maintainer='Tim Gates',
     maintainer_email='tim.gates@iress.com',
-    license='MIT',
-    url='https://pytest-buildkite.github.io/index.html',
     packages=[PACKAGE_NAME],
+    license='MIT',
     description=(
-        'Plugin for pytest that automatically publishes coverage and'
-        ' pytest report annotations to Buildkite.'
+        'Plugin for pytest that automatically publishes coverage'
+        ' and pytest report annotations to Buildkite.'
     ),
     long_description=load_readme('README.rst'),
     long_description_content_type='text/x-rst',
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     install_requires=['pytest>=3.5.0', 'plumbum', 'pipefish'],
+    url='https://github.com/pytest-buildkite/pytest-buildkite',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Programming Language :: Python',

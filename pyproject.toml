@@ -1,4 +1,4 @@
 [tool.towncrier]
-    package = "pymodulenamegoeshere"
+    package = "pytest_buildkite"
     package_dir = "app"
     filename = "NEWS.rst"

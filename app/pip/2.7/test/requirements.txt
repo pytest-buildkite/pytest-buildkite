@@ -1,6 +1,7 @@
 bandit
 flake8
 isort
+mock
 pylint
 pytest
 pytest-azurepipelines42
