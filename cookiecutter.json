@@ -1,0 +1,20 @@
+{
+    "project_name":  "pytest-buildkite",
+    "project_long_name":  "{{ cookiecutter.project_name }}",
+    "project_description": "Plugin for pytest that automatically publishes coverage and pytest report annotations to Buildkite.",
+    "project_long_description": "{{ cookiecutter.project_description }}",
+    "project_slug":  "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_')|replace('.', '_')|trim() }}",
+    "github_org": "pytest-buildkite",
+    "github_repo": "pytest-buildkite",
+    "project_url": "https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}",
+    "py_modulename":  "{{ cookiecutter.project_slug }}",
+    "community_name":  "{{ cookiecutter.project_name }}",
+    "docker_application_tagname": "app",
+    "docker_workspace_dirname": "workspace",
+    "docker_application_dirname": "{{ cookiecutter.docker_application_tagname }}",
+    "author_email": "tim.gates@iress.com",
+    "author_name": "Tim Gates",
+    "maintainer_name": "{{ cookiecutter.author_name }}",
+    "maintainer_email": "{{ cookiecutter.author_email }}",
+    "project_email": "{{ cookiecutter.maintainer_email }}"
+}
