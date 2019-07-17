@@ -8,9 +8,8 @@ Reports.
 import os.path
 
 # External Imports
-from plumbum import FG, local
-
 import pipefish
+from plumbum import FG, local
 
 from .version import __version__
 
