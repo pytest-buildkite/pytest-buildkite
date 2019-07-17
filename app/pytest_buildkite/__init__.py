@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Pytest plugin to add Builekite annotations for Test Results and Coverage
+Pytest plugin to add Buildkite annotations for Test Results and Coverage
 Reports.
 """
 
@@ -35,7 +35,7 @@ def pytest_configure(config):
     if not xmlpath:
         config.option.xmlpath = DEFAULT_PATH
 
-    # ensure coverage creates xml format
+    # ensure coverage creates `xml` format
     if config.pluginmanager.has_plugin("pytest_cov"):
         config.option.cov_report["xml"] = os.path.normpath(
             os.path.abspath(
@@ -53,10 +53,9 @@ def pytest_sessionfinish(session, exitstatus):
     """
     xmlpath = session.config.option.xmlpath
 
+    # noqa: E501 # pylint: disable=line-too-long
     # This mirrors
-    # https://github.com/pytest-dev/pytest/blob
-    #    /38adb23bd245329d26b36fd85a43aa9b3dd0406c/src
-    #    /_pytest/junitxml.py#L368-L369
+    # `https://github.com/pytest-dev/pytest/blob/38adb23bd245329d26b36fd85a43aa9b3dd0406c/src/_pytest/junitxml.py#L368-L369`
     xmlabspath = os.path.normpath(
         os.path.abspath(os.path.expanduser(os.path.expandvars(xmlpath)))
     )
