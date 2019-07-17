@@ -1,8 +1,8 @@
 bandit
 flake8
 isort
+mock
 pylint
-pyspelling
 pytest
 pytest-azurepipelines42
 pytest-cov

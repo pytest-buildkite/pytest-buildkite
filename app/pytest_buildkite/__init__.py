@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Pytest plugin to add Builekite annotations for Test Results and Coverage
+Pytest plugin to add Buildkite annotations for Test Results and Coverage
 Reports.
 """
 
@@ -10,6 +10,16 @@ import os.path
 # External Imports
 import pipefish
 from plumbum import FG, local
+
+from .version import __version__
+
+__all__ = [
+    '__version__',
+    'pytest_configure',
+    'pytest_sessionfinish',
+    'pytest_terminal_summary',
+    'pytest_warning_captured',
+]
 
 DEFAULT_PATH = "test-output.xml"
 DEFAULT_COV_PATH = "test-cov.xml"
@@ -24,7 +34,7 @@ def pytest_configure(config):
     if not xmlpath:
         config.option.xmlpath = DEFAULT_PATH
 
-    # ensure coverage creates xml format
+    # ensure coverage creates `xml` format
     if config.pluginmanager.has_plugin("pytest_cov"):
         config.option.cov_report["xml"] = os.path.normpath(
             os.path.abspath(
@@ -42,10 +52,9 @@ def pytest_sessionfinish(session, exitstatus):
     """
     xmlpath = session.config.option.xmlpath
 
+    # noqa: E501 # pylint: disable=line-too-long
     # This mirrors
-    # https://github.com/pytest-dev/pytest/blob
-    #    /38adb23bd245329d26b36fd85a43aa9b3dd0406c/src
-    #    /_pytest/junitxml.py#L368-L369
+    # `https://github.com/pytest-dev/pytest/blob/38adb23bd245329d26b36fd85a43aa9b3dd0406c/src/_pytest/junitxml.py#L368-L369`
     xmlabspath = os.path.normpath(
         os.path.abspath(os.path.expanduser(os.path.expandvars(xmlpath)))
     )
@@ -56,7 +65,7 @@ def pytest_sessionfinish(session, exitstatus):
             style = 'error'
         elif exitstatus != 0:
             style = 'warning'
-        buildkite_annotate(markdown_msg, style=style)
+        _buildkite_annotate(markdown_msg, style=style)
 
 
 def pytest_terminal_summary(terminalreporter):
@@ -79,9 +88,9 @@ def pytest_terminal_summary(terminalreporter):
             markdown_msg = pipefish.process_cobertura_xml(
                 covpath, cov_fail_under
             )
-            buildkite_annotate(markdown_msg, style=cov_style)
+            _buildkite_annotate(markdown_msg, style=cov_style)
         else:
-            buildkite_annotate(
+            _buildkite_annotate(
                 'Coverage XML not produced {0}'.format(
                     covpath,
                 ),
@@ -94,12 +103,12 @@ def pytest_warning_captured(  # pylint: disable=unused-argument
     """
     Raise any pytest warnings to Buildkite.
     """
-    buildkite_annotate(
+    _buildkite_annotate(
         str(warning_message.message), style='warning',
     )
 
 
-def buildkite_annotate(content, style='success', context=None):
+def _buildkite_annotate(content, style='success', context=None):
     """
     Call out to the buildkite-agent to pass a build annotation.
     """

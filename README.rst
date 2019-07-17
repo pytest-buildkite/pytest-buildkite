@@ -112,6 +112,7 @@ If you encounter any problems, please `file an issue`_ along with a detailed des
 
 Additional Documentation
 ------------------------
+* `News`_
 * `Code of Conduct`_
 * `Contribution Guidelines`_
 
@@ -124,3 +125,4 @@ Additional Documentation
 .. _`annotations`: https://buildkite.com/docs/agent/v3/cli-annotate
 .. _`Code of Conduct`: CODE_OF_CONDUCT.md
 .. _`Contribution Guidelines`: CONTRIBUTING.md
+.. _`News`: News.rst

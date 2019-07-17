@@ -13,10 +13,10 @@ if ! which docker-compose ; then
     echo 'Docker-Compose is missing!' >&2
     exit 1
 fi
-if [[ "$CMD" =~ [^a-zA-Z0-9] ]]; then
+if [[ "$CMD" =~ [^a-zA-Z0-9_] ]]; then
     echo "Invalid Command: ${CMD}" >&2
     exit 1
 fi
 cd "${BASEDIR}"
-source "${BASEDIR}/ci/${CMD}.sh" "${@:2}"
+"${BASEDIR}/ci/${CMD}.sh" "${@:2}"
 
