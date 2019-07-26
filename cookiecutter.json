@@ -32,5 +32,7 @@
     "classifier_pytwo": "Programming Language :: Python :: 2",
     "classifier_pytwoseven": "Programming Language :: Python :: 2.7",
     "travis_status_url": "https://travis-ci.org/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}.svg?branch=master",
-    "travis_build_url": "https://travis-ci.org/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}"
+    "travis_build_url": "https://travis-ci.org/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}",
+    "appveyor_status_url": "https://ci.appveyor.com/api/projects/status/github/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}/branch/master?svg=true",
+    "appveyor_build_url": "https://ci.appveyor.com/project/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}"
 }
