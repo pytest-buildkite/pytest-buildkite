@@ -24,11 +24,13 @@ pytest-buildkite
 cov
 css
 datetime
+defusedxml
 dev
 deviceid
 deviceobj
 deviceobject
 dlint
+docopt
 DOCTYPE
 exename
 genindex
@@ -69,7 +71,7 @@ PRTGDevice
 PRTGSensor
 py
 pylint
-PyPi
+PyPI
 pyruncompare
 pyspelling
 pytest
