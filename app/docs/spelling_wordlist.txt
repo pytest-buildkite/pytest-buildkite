@@ -1,5 +1,0 @@
-buildkite
-nosec
-pylint
-pytest
-testsuite

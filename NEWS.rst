@@ -1,7 +1,12 @@
-pytest-buildkite 0.1.0dev0 (2019-07-15)
-===========================================
+Release History
+~~~~~~~~~~~~~~~
 
-Features
---------
+0.2.0
+-----
 
-- Use towncrier for news updates. (#1)
+* Initial release - very basic markdown output to Buildkite annotations
+
+0.1.0
+-----
+
+This repository was re-purposed from the pytest-azurepipelines library.
