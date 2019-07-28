@@ -1,5 +1,5 @@
-pytest_buildkite
-=========
+app
+===
 
 .. toctree::
    :maxdepth: 4

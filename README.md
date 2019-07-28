@@ -14,8 +14,8 @@ that automatically publishes coverage and pytest report
 [annotations](https://buildkite.com/docs/agent/v3/cli-annotate)
 to BuildKite.
 
-Note: This library was originally repurposed from
-[tonybaloney's pytest-azurepipelines](https://github.com/tonybaloney/pytest-azurepipelines)
+Note: This library was originally re-purposed from
+[`tonybaloney's` pytest-azurepipelines](https://github.com/tonybaloney/pytest-azurepipelines)
 
 Just run pytest with this plugin and see your test results in the BuildKite UI!
 
@@ -48,7 +48,7 @@ https://pypi.org/project/pytest-buildkite/
 # Features:
 
 - Overloads the `--junit-xml` flag on execution with a default value
-- Uploads test results automatically, no need for a seperate test results upload command
+- Uploads test results automatically, no need for a separate test results upload command
 - Displays the number of failed tests if there were failures as an error message in the UI
 - Displays summary of code coverage if pytest-cov is installed
 

@@ -1,3 +1,5 @@
+testsuite
+buildkite
 alldevices
 allgroups
 allprobes
@@ -113,3 +115,5 @@ webgui
 xdist
 xml
 yyyy
+plumbum
+BuildKite
