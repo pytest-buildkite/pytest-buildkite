@@ -27,12 +27,19 @@
     "app_requirements": "",
     "cov_fail_under": "0",
     "dictionary": "en_AU",
-    "python_requires": ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
-    "python_versions": "2.7 3.4 3.5 3.6 3.7",
-    "classifier_pytwo": "Programming Language :: Python :: 2",
-    "classifier_pytwoseven": "Programming Language :: Python :: 2.7",
     "travis_status_url": "https://travis-ci.org/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}.svg?branch=master",
     "travis_build_url": "https://travis-ci.org/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}",
     "appveyor_status_url": "https://ci.appveyor.com/api/projects/status/github/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}/branch/master?svg=true",
-    "appveyor_build_url": "https://ci.appveyor.com/project/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}"
+    "appveyor_build_url": "https://ci.appveyor.com/project/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo }}",
+    "installation_notes": "",
+    "extended_readme": "",
+    "supports_pytwo": [
+        "yes",
+        "no"
+    ],
+    "license": [
+        "GPLv3+",
+        "MIT"
+    ]
+}
 }
