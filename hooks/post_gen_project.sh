@@ -7,6 +7,6 @@ TOP="$(dirname "${BASEDIR}")"
 
 cd "${TOP}"
 git checkout -- \
- HISTORY.rst \
+ NEWS.rst \
  app/pytest_buildkite \
  app/tests
