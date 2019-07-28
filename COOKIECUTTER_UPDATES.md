@@ -23,8 +23,8 @@ consider application of new updates.
 * Use (resplendent)[https://github.com/resplendent-dev/resplendent] to spell check reStructuredText in pyspelling.
 * Use (shellcheck)[https://github.com/koalaman/shellcheck] for shell script static analysis.
 * Use (sphinx)[https://github.com/sphinx-doc/sphinx] for documentation generation.
-* Use (twine)[https://github.com/pypa/twine] for publishing to PyPi.
-* Badge for (PyPi)[https://pypi.org/]
+* Use (twine)[https://github.com/pypa/twine] for publishing to PyPI.
+* Badge for (PyPI)[https://pypi.org/]
 * Badge for (ReadTheDocs)[https://readthedocs.org/]
 * Badge for (Azure Pipelines)[https://azure.microsoft.com/en-au/services/devops/pipelines/]
 * Badge for (Coveralls)[https://coveralls.io/]
