@@ -38,7 +38,7 @@
         "no"
     ],
     "license": [
-        "GPLv3+",
-        "MIT"
+        "MIT",
+        "GPLv3+"
     ]
 }
