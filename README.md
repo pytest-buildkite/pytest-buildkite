@@ -2,7 +2,7 @@
 
 [![Azure Status](https://dev.azure.com/timgates/timgates/_apis/build/status/pytest-buildkite.pytest-buildkite?branchName=master)](https://dev.azure.com/timgates/timgates/_build/latest?definitionId=11&branchName=master)
 [![Travis Status](https://travis-ci.org/pytest-buildkite/pytest-buildkite.svg?branch=master)](https://travis-ci.org/pytest-buildkite/pytest-buildkite)
-[![Appveyor Status](https://ci.appveyor.com/api/projects/status/github/pytest-buildkite/pytest-buildkite/branch/master?svg=true)](https://ci.appveyor.com/project/pytest-buildkite/pytest-buildkite)
+[![Appveyor Status](https://ci.appveyor.com/api/projects/status/nod9sis12whcv0d2/branch/master?svg=true)](https://ci.appveyor.com/project/pytest-buildkite/pytest-buildkite)
 [![PyPI version](https://img.shields.io/pypi/v/pytest-buildkite.svg)](https://pypi.org/project/pytest-buildkite)
 [![Python Versions](https://img.shields.io/pypi/pyversions/pytest-buildkite.svg)](https://pypi.org/project/pytest-buildkite)
 [![PyPI downloads per month](https://img.shields.io/pypi/dm/pytest-buildkite.svg)](https://pypi.org/project/pytest-buildkite)
@@ -21,6 +21,9 @@ Just run pytest with this plugin and see your test results in the BuildKite UI!
 
 ![Screenshot](https://github.com/pytest-buildkite/pytest-buildkite/raw/master/screenshot.png)
 
+
+More details can be found in the
+[Online Documentation.](https://pytest-buildkite.readthedocs.io/en/latest/)
 
 # Installation
 
@@ -110,7 +113,7 @@ license, "pytest-buildkite" is free and open source software
 
 # Issues
 
-If you encounter any problems, please 
+If you encounter any problems, please
 [file an issue](https://github.com/pytest-buildkite/pytest-buildkite/issues)
 along with a detailed description.
 
