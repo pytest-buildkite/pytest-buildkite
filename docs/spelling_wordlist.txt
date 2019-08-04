@@ -21,8 +21,10 @@ CLI
 cobertura
 config
 conftest
+contrib
 cookiecutter
 CookieCutter
+pytest-buildkite
 cov
 css
 datetime
@@ -34,8 +36,10 @@ deviceobject
 dlint
 docopt
 DOCTYPE
+docutils
 exename
 genindex
+GPLv
 hh
 hostname
 href
@@ -73,7 +77,9 @@ PRTGApi
 PRTGDevice
 PRTGSensor
 py
+PyEnchant
 pylint
+PyPi
 PyPI
 pyruncompare
 pyspelling
@@ -86,6 +92,7 @@ README
 ReadTheDocs
 repr
 resplendent
+restructuredtext
 reStructuredText
 rootid
 rst
@@ -112,6 +119,7 @@ ul
 unanimous
 undoc
 unicode
+unmaintained
 urls
 utf
 webgui
