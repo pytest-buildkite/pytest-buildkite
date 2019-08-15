@@ -8,6 +8,7 @@
 [![PyPI downloads per month](https://img.shields.io/pypi/dm/pytest-buildkite.svg)](https://pypi.org/project/pytest-buildkite)
 [![Documentation Status](https://readthedocs.org/projects/pytest-buildkite/badge/?version=latest)](https://pytest-buildkite.readthedocs.io/en/latest/?badge=latest)
 [![Coverage Status](https://coveralls.io/repos/github/pytest-buildkite/pytest-buildkite/badge.svg)](https://coveralls.io/github/pytest-buildkite/pytest-buildkite/)
+[![Black](https://camo.githubusercontent.com/28a51fe3a2c05048d8ca8ecd039d6b1619037326/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64652532307374796c652d626c61636b2d3030303030302e737667)](https://github.com/psf/black)
 
 Plugin for [pytest](https://github.com/pytest-dev/pytest)
 that automatically publishes coverage and pytest report

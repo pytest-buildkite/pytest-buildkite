@@ -14,6 +14,8 @@ find . -iname \*.sh -print0 | xargs -0 shellcheck
 PYVER=3.7
 # Run pyspelling in root to check docs
 "python${PYVER}" -m pyspelling
+# Run black to check all python on 3.7 only
+"python${PYVER}" -m black --check "${BASEDIR}"
 cd "${BASEDIR}/app"
 # Version dependant checks
 for PYVER in ${PYTHONVERS} ; do
