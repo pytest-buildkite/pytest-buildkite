@@ -14,11 +14,11 @@ from plumbum import FG, local
 from .version import __version__
 
 __all__ = [
-    '__version__',
-    'pytest_configure',
-    'pytest_sessionfinish',
-    'pytest_terminal_summary',
-    'pytest_warning_captured',
+    "__version__",
+    "pytest_configure",
+    "pytest_sessionfinish",
+    "pytest_terminal_summary",
+    "pytest_warning_captured",
 ]
 
 DEFAULT_PATH = "test-output.xml"
@@ -37,11 +37,7 @@ def pytest_configure(config):
     # ensure coverage creates `xml` format
     if config.pluginmanager.has_plugin("pytest_cov"):
         config.option.cov_report["xml"] = os.path.normpath(
-            os.path.abspath(
-                os.path.expanduser(os.path.expandvars(
-                    DEFAULT_COV_PATH
-                ))
-            )
+            os.path.abspath(os.path.expanduser(os.path.expandvars(DEFAULT_COV_PATH)))
         )
 
 
@@ -60,11 +56,11 @@ def pytest_sessionfinish(session, exitstatus):
     )
     if os.path.isfile(xmlabspath) and not session.shouldfail:
         markdown_msg = pipefish.process_junit_xml(xmlabspath)
-        style = 'success'
+        style = "success"
         if session.testsfailed > 0:
-            style = 'error'
+            style = "error"
         elif exitstatus != 0:
-            style = 'warning'
+            style = "warning"
         _buildkite_annotate(markdown_msg, style=style)
 
 
@@ -75,47 +71,39 @@ def pytest_terminal_summary(terminalreporter):
     if terminalreporter.config.pluginmanager.has_plugin("pytest_cov"):
         cov_fail_under = terminalreporter.config.option.cov_fail_under
         covpath = os.path.normpath(
-            os.path.abspath(os.path.expanduser(os.path.expandvars(
-                DEFAULT_COV_PATH
-            )))
+            os.path.abspath(os.path.expanduser(os.path.expandvars(DEFAULT_COV_PATH)))
         )
         if os.path.exists(covpath):
-            cov_style = 'success'
+            cov_style = "success"
             if cov_fail_under is not None:
                 cov_percent = pipefish.get_coverage_from_cobertura_xml(covpath)
                 if cov_percent < cov_fail_under:
-                    cov_style = 'error'
-            markdown_msg = pipefish.process_cobertura_xml(
-                covpath, cov_fail_under
-            )
+                    cov_style = "error"
+            markdown_msg = pipefish.process_cobertura_xml(covpath, cov_fail_under)
             _buildkite_annotate(markdown_msg, style=cov_style)
         else:
             _buildkite_annotate(
-                'Coverage XML not produced {0}'.format(
-                    covpath,
-                ),
-                style='warning',
+                "Coverage XML not produced {0}".format(covpath), style="warning"
             )
 
 
 def pytest_warning_captured(  # pylint: disable=unused-argument
-        warning_message, when, *args):
+    warning_message, when, *args
+):
     """
     Raise any pytest warnings to Buildkite.
     """
-    _buildkite_annotate(
-        str(warning_message.message), style='warning',
-    )
+    _buildkite_annotate(str(warning_message.message), style="warning")
 
 
-def _buildkite_annotate(content, style='success', context=None):
+def _buildkite_annotate(content, style="success", context=None):
     """
     Call out to the buildkite-agent to pass a build annotation.
     """
     if context is None:
-        context = 'ctx-%s' % (style,)
-    agent = local['buildkite-agent']
-    _ = agent[
-        'annotate', content, '--style', style,
-        '--context', context, '--append',
-    ] & FG
+        context = "ctx-%s" % (style,)
+    agent = local["buildkite-agent"]
+    _ = (
+        agent["annotate", content, "--style", style, "--context", context, "--append"]
+        & FG
+    )

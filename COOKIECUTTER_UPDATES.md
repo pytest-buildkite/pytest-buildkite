@@ -24,10 +24,12 @@ consider application of new updates.
 * Use (shellcheck)[https://github.com/koalaman/shellcheck] for shell script static analysis.
 * Use (sphinx)[https://github.com/sphinx-doc/sphinx] for documentation generation.
 * Use (twine)[https://github.com/pypa/twine] for publishing to PyPI.
+* Use (black)[https://github.com/psf/black] for code format.
 * Badge for (PyPI)[https://pypi.org/]
 * Badge for (ReadTheDocs)[https://readthedocs.org/]
 * Badge for (Azure Pipelines)[https://azure.microsoft.com/en-au/services/devops/pipelines/]
 * Badge for (Coveralls)[https://coveralls.io/]
+* Badge for (black)[https://github.com/psf/black]
 
 # Minor Updates
 * Installation details on README.md
