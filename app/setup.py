@@ -87,4 +87,5 @@ setup(
         ]
         if elem
     ],
+    entry_points={"pytest11": ["buildkite = pytest_buildkite"]},
 )
