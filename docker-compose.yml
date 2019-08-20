@@ -59,6 +59,8 @@ services:
       - TRAVIS_TIMER_START_TIME
       - TRAVIS_TMPDIR
       - TRAVIS_UID
+      - USER
+      - USERNAME
     volumes:
       - type: bind
         source: .
