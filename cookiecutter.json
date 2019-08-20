@@ -41,5 +41,5 @@
         "MIT",
         "GPLv3+"
     ],
-    "entry_points": "\n    entry_points={\n\"pytest11\": [\"buildkite = pytest_buildkite\"]},"
+    "entry_points": "\n    entry_points={\"pytest11\": [\"buildkite = pytest_buildkite\"]},"
 }
