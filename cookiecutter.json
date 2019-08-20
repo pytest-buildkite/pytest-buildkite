@@ -40,5 +40,6 @@
     "license": [
         "MIT",
         "GPLv3+"
-    ]
+    ],
+    "entry_points": "\n    entry_points={\n\"pytest11\": [\"buildkite = pytest_buildkite\"]},"
 }
