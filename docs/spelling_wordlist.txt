@@ -24,7 +24,6 @@ conftest
 contrib
 cookiecutter
 CookieCutter
-pytest-buildkite
 cov
 css
 datetime
@@ -63,6 +62,7 @@ newname
 newplaceid
 noqa
 nosec
+pademelon
 pademelon
 parallelization
 param
@@ -127,3 +127,4 @@ webgui
 xdist
 xml
 yyyy
+pytest-buildkite
