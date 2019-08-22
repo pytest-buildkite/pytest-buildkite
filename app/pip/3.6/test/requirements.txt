@@ -1,4 +1,5 @@
 bandit
+black
 dlint
 flake8
 isort
