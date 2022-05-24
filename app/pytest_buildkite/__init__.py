@@ -18,7 +18,7 @@ __all__ = [
     "pytest_configure",
     "pytest_sessionfinish",
     "pytest_terminal_summary",
-    "pytest_warning_captured",
+    "pytest_warning_recorded",
 ]
 
 DEFAULT_PATH = "test-output.xml"
@@ -87,7 +87,7 @@ def pytest_terminal_summary(terminalreporter):
             )
 
 
-def pytest_warning_captured(  # pylint: disable=unused-argument
+def pytest_warning_recorded(  # pylint: disable=unused-argument
     warning_message, when, *args
 ):
     """
